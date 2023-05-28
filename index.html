@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Amor con Transiciones</title>
+        <style>
+            *
+            {
+                font-family: "sugar";
+            }
+            body {
+                background-color: #ffccff;
+                font-family: Arial, sans-serif;
+                text-align: center;
+            }
+
+            .container {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                height: 90vh;
+                margin-left: auto;
+                margin-right: auto;
+            }
+
+            .heart {
+                margin: 20px;
+                animation: heartbeat 1s infinite;
+            }
+
+            .heart img {
+                width: 180px;
+                height: 180px;
+            }
+
+            .text {
+                font-size: 40px;
+                color: #cc00ff;
+                margin-bottom: 20px;
+                transition: color 0.3s ease;
+            }
+
+            .button {
+                position: absolute;
+                bottom: 20px;
+                left: auto;
+                right: auto;
+                background-color: #cc00ff;
+                color: #fff;
+                border: none;
+                padding: 10px 30px;
+                font-size: 30px;
+                border-radius: 5px;
+                cursor: pointer;
+                transition: background-color 0.3s ease, color 0.3s ease;
+            }
+
+            .button:hover {
+                background-color: #ff0066;
+            }
+
+            @font-face
+            {
+                font-family: sugar;
+                src: url('sugar.ttf');
+            }
+
+        </style>
+    </head>
+    <body>
+        <div class="container">
+            <div class="heart">
+                <img src="https://cdn-icons-png.flaticon.com/512/693/693423.png" alt="Corazón" id="heartImage">
+            </div>
+            <div class="text">Tú</div>
+            <button class="button" onclick="changeTextImage()">➙</button>
+        </div>
+
+        <script>
+            const phrases = [
+                "Tú",
+                "Si tú",
+                "Mi Lauri",
+                "Mi pequeñita",
+                "Mi vida",
+                "Mi todo",
+                "Siempre estaremos juntos",
+                "Pese a las rabietas...",
+                "Y la pequeña distancia...",
+                "Pero lo superamos",
+                "Nos amamos",
+                "Se que no eres de tanto amor...",
+                "Pero lo necesitas tanto como yo",
+                "Aunque tus días a veces sean caóticos...",
+                "Yo estoy aquí",
+                "Tus amigas",
+                "Tus padres",
+                "Te apoyaremos siempre",
+                "Nunca lo dudes",
+                "Gracias por tu amor",
+                "Lo haremos crecer juntos",
+                "Formaremos una familia",
+                "Tú y Yo",
+                "Pase lo que pase",
+                "Siempre unidos"
+            ];
+
+            const imageReferences = [
+                "https://cdn-icons-png.flaticon.com/512/693/693423.png",
+                "https://cdn-icons-png.flaticon.com/512/2074/2074520.png",
+                "https://cdn-icons-png.flaticon.com/512/7081/7081326.png",
+                "https://cdn-icons-png.flaticon.com/512/4151/4151549.png",
+                "https://cdn-icons-png.flaticon.com/512/2773/2773104.png",
+                "https://cdn-icons-png.flaticon.com/512/4608/4608340.png",
+                "https://cdn-icons-png.flaticon.com/512/940/940643.png",
+                "https://cdn-icons-png.flaticon.com/512/3721/3721089.png",
+                "https://cdn-icons-png.flaticon.com/512/3371/3371308.png",
+                "https://cdn-icons-png.flaticon.com/512/2618/2618623.png",
+                "https://cdn-icons-png.flaticon.com/512/3065/3065883.png",
+                "https://cdn-icons-png.flaticon.com/512/5195/5195118.png",
+                "https://cdn-icons-png.flaticon.com/512/4051/4051637.png",
+                "https://cdn-icons-png.flaticon.com/512/6028/6028260.png",
+                "https://cdn-icons-png.flaticon.com/512/5065/5065314.png",
+                "https://cdn-icons-png.flaticon.com/512/4841/4841078.png",
+                "https://cdn-icons-png.flaticon.com/512/3884/3884999.png",
+                "https://cdn-icons-png.flaticon.com/512/4185/4185793.png",
+                "https://cdn-icons-png.flaticon.com/512/5625/5625749.png",
+                "https://cdn-icons-png.flaticon.com/512/6911/6911461.png",
+                "https://cdn-icons-png.flaticon.com/512/677/677786.png",
+                "https://cdn-icons-png.flaticon.com/512/940/940643.png",
+                "https://cdn-icons-png.flaticon.com/512/5540/5540597.png",
+                "https://cdn-icons-png.flaticon.com/512/1058/1058347.png",
+                "https://cdn-icons-png.flaticon.com/512/1176/1176706.png"
+            ];
+
+            let currentPhraseIndex = 0;
+            let currentImageIndex = 0;
+            let heartImageElement = document.getElementById("heartImage");
+            let textElement = document.querySelector(".text");
+
+            function changeTextImage() {
+                currentPhraseIndex = (currentPhraseIndex + 1) % phrases.length;
+                currentImageIndex = (currentImageIndex + 1) % imageReferences.length;
+                textElement.textContent = phrases[currentPhraseIndex];
+                heartImageElement.src = imageReferences[currentImageIndex];
+            }
+
+        </script>
+    </body>
+</html>
