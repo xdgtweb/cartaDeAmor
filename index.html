@@ -3,7 +3,7 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Amor con Transiciones</title>
+        <title>Lauvid</title>
         <style>
             *
             {
@@ -67,6 +67,33 @@
                 src: url('sugar.ttf');
             }
 
+            #flashImagen {
+                opacity: 0;
+                max-width: 100%;
+                max-height: 100%;
+                position: fixed;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%) scale(0.5);
+                pointer-events: none;
+            }
+
+            .show {
+                opacity: 1;
+                animation: growImage 1.3s forwards;
+            }
+
+            @keyframes growImage {
+                from {
+                    opacity: 1;
+                    transform: translate(-50%, -50%) scale(0.1);
+                }
+                to {
+                    opacity: 0;
+                    transform: translate(-50%, -50%) scale(4);
+                }
+            }
+
         </style>
     </head>
     <body>
@@ -75,9 +102,10 @@
                 <img src="https://cdn-icons-png.flaticon.com/512/693/693423.png" alt="Corazón" id="heartImage">
             </div>
             <div class="text">Tú</div>
-            <button class="button" onclick="changeTextImage()">➙</button>
-        </div>
+            <button id="toggleButton" class="button" onclick="changeTextImage()">➙</button>
 
+        </div>
+        <img id="flashImagen" src="" alt="imagen">
         <script>
             const phrases = [
                 "Tú",
@@ -96,7 +124,7 @@
                 "Aunque tus días a veces sean caóticos...",
                 "Yo estoy aquí",
                 "Tus amigas",
-                "Tus padres",
+                "Tus familia",
                 "Te apoyaremos siempre",
                 "Nunca lo dudes",
                 "Gracias por tu amor",
@@ -148,5 +176,68 @@
             }
 
         </script>
+
+        <script>
+            const toggleButton = document.getElementById('toggleButton');
+            const myImage = document.getElementById('flashImagen');
+            let currentIndex = 0;
+            const images = [
+                'img/nosotros/lauraCorazon.jpg',
+                'img/nosotros/lauraSalera.jpg',
+                'img/nosotros/LauriMini.jpg',
+                'img/nosotros/abrazo1.jpg',
+                'img/nosotros/nosotrosParque.jpg',
+                'img/nosotros/manos3.jpg',
+                'img/nosotros/lauraPeloNaranja.jpg',
+                'img/nosotros/masajesOnda.jpg',
+                'img/nosotros/manosCoche.jpg',
+                'img/nosotros/beso.jpg',
+                'img/nosotros/salera.jpg',
+                'img/nosotros/lauraTequila.jpg',
+                'img/nosotros/lauraMujer.jpg',
+                'img/nosotros/miCasa.jpg',
+                'img/nosotros/burguer2.jpg',
+                'img/nosotros/cumple22.jpg',
+                'img/nosotros/lauraDiploma.jpg',
+                'img/nosotros/lauraManos.jpg',
+                'img/nosotros/camisetaStich2.jpg',
+                'img/nosotros/davidLauraChuches.jpg',
+                'img/nosotros/nuestroBebe.jpg',
+                'img/nosotros/saleraParchis.jpg',
+                'img/nosotros/pizzaManos.jpg',
+                'img/nosotros/manos1.jpg',
+                'img/nosotros/manosDos.jpg'
+            ];
+
+            function disableButton() {
+                toggleButton.disabled = true;
+            }
+
+            // Función para precargar una imagen en la caché del navegador
+            function preloadImage(url) {
+                const img = new Image();
+                img.src = url;
+            }
+
+            // Precargar todas las imágenes en el arreglo "images"
+            images.forEach((imageUrl) => {
+                preloadImage(imageUrl);
+            });
+
+            toggleButton.addEventListener('click', () => {
+                disableButton();
+                myImage.src = images[currentIndex];
+                myImage.style.opacity = 0;
+                myImage.classList.add('show');
+                setTimeout(() => {
+                    myImage.style.opacity = 0;
+                    myImage.classList.remove('show');
+                    currentIndex = (currentIndex + 1) % images.length;
+                    toggleButton.disabled = false;
+                }, 1300);
+            });
+        </script>
+
+
     </body>
 </html>
