@@ -11,6 +11,8 @@
             }
             body {
                 background-color: #ffccff;
+                background-image: url(vid/Comp_4_1.gif);
+                background-size: cover;
                 font-family: Arial, sans-serif;
                 text-align: center;
             }
@@ -37,9 +39,10 @@
 
             .text {
                 font-size: 40px;
-                color: #cc00ff;
+                color: #ffccff;
                 margin-bottom: 20px;
                 transition: color 0.3s ease;
+                animation: texto 1s ease-in-out infinite alternate;
             }
 
             .button {
@@ -91,6 +94,14 @@
                 to {
                     opacity: 0;
                     transform: translate(-50%, -50%) scale(4);
+                }
+            }
+            @keyframes texto {
+                0% {
+                    color: #ffccff;
+                }
+                100% {
+                    color: #99ff99;
                 }
             }
 
