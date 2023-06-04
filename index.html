@@ -1,255 +1,114 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
     <head>
-        <link rel="icon" href="icono.png" type="image/x-icon">
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Lauvid</title>
+        <meta name="google" content="notranslate">
+        <title>Índice de Contenido</title>
         <style>
             *
             {
-                font-family: "sugar";
-            }
-            body {
-                background-color: #cc00ff;
-                /*background-image: url(vid/Comp_4_1.gif);*/
-                background-size: cover;
-                font-family: Arial, sans-serif;
-                text-align: center;
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+                font-family: 'sugar';
+                letter-spacing: 2px;
             }
 
+            /* Estilos generales */
+            body {
+                font-family: Arial, sans-serif;
+                margin: 0;
+                padding: 20px;
+                background-color: #99ff99; /* Fondo del body en color verde claro */
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                height: 100vh;
+                overflow: hidden;
+            }
+
+            /* Caja contenedora */
             .container {
+                max-width: 600px;
+                background-color: #ff99ff; /* Color morado claro */
+                padding: 20px;
+                border: #ffff99 solid 5px;
+                border-radius: 10px;
                 display: flex;
                 flex-direction: column;
-                align-items: center;
                 justify-content: center;
-                height: 90vh;
-                margin-left: auto;
-                margin-right: auto;
+                align-items: center;
+                text-align: center;
+                transition: 0.5s;
+            }
+            .container:hover {
+                background-color: #ff33ff; /* Color morado claro */
+                transition: 0.5s;
+            }   
+
+            h1
+            {
+                margin-bottom: 15px;
+                color: #990099;
             }
 
-            .heart {
-                margin: 20px;
-                animation: heartbeat 1s infinite;
+            /* Estilos para dispositivos móviles */
+            @media (max-width: 600px) {
+                body {
+                    font-size: 14px;
+                }
             }
 
-            .heart img {
-                width: 180px;
-                height: 180px;
+            /* Estilos para tablets y dispositivos más grandes */
+            @media (min-width: 601px) {
+                body {
+                    font-size: 16px;
+                }
             }
 
-            .text {
-                font-size: 40px;
-                color: #ffccff;
-                margin-bottom: 20px;
-                transition: color 0.3s ease;
-                animation: texto 1s ease-in-out infinite alternate;
+            /* Estilos para enlaces */
+            a {
+                background-color: #99ff99;
+                border: 3px #ffff99 solid;
+                border-radius: 15px;
+                padding: 20px;
+                text-decoration: none;
+                color: green;
+                display: block;
+                margin-bottom: 15px;
+                font-weight: bold;
+                font-size: 18px;
+                transition: 0.2s;
             }
 
-            .button {
-                position: absolute;
-                bottom: 20px;
-                left: auto;
-                right: auto;
-                background-color: #990099;
-                color: #fff;
-                border: none;
-                padding: 10px 30px;
-                font-size: 30px;
-                border-radius: 5px;
-                cursor: pointer;
-                transition: background-color 0.3s ease, color 0.3s ease;
+            /* Estilos para enlaces al pasar el ratón */
+            a:hover {
+                background-color: #99ff66;
+                transition: 0.2s;
             }
 
-            .button:hover {
-                background-color: #ff0066;
+            /* Estilos para la lista */
+            ul {
+                list-style: none; /* Quitar los puntos de la lista */
+                padding-left: 0;
             }
-
+            
             @font-face
             {
                 font-family: sugar;
                 src: url('sugar.ttf');
             }
-
-            #flashImagen {
-                opacity: 0;
-                max-width: 100%;
-                max-height: 100%;
-                position: fixed;
-                top: 50%;
-                left: 50%;
-                transform: translate(-50%, -50%) scale(0.5);
-                pointer-events: none;
-            }
-
-            .show {
-                opacity: 1;
-                animation: growImage 1.3s forwards;
-            }
-
-            @keyframes growImage {
-                from {
-                    opacity: 1;
-                    transform: translate(-50%, -50%) scale(0.1);
-                }
-                to {
-                    opacity: 0;
-                    transform: translate(-50%, -50%) scale(4);
-                }
-            }
-            @keyframes texto {
-                0% {
-                    color: #ffccff;
-                }
-                100% {
-                    color: #99ff99;
-                }
-            }
-
         </style>
     </head>
     <body>
         <div class="container">
-            <div class="heart">
-                <img src="https://cdn-icons-png.flaticon.com/512/693/693423.png" alt="Corazón" id="heartImage">
-            </div>
-            <div class="text">Tú</div>
-            <button id="toggleButton" class="button" onclick="changeTextImage()">➙</button>
-
+            <h1>Lauvid</h1>
+            <ul>
+                <li><a href="fotosArtificiales.html">💥 Fotos Artificiales💥 </a></li>
+                <li><a href="">❓ ❓ ❓ </a></li>
+                <li><a href="">❓ ❓ ❓ </a></li>
+            </ul>
         </div>
-        <img id="flashImagen" src="" alt="imagen">
-        <script>
-            const phrases = [
-                "Tú",
-                "Si tú",
-                "Mi Lauri",
-                "Mi pequeñita",
-                "Mi vida",
-                "Mi todo",
-                "Siempre estaremos juntos",
-                "Pese a las rabietas...",
-                "Y la pequeña distancia...",
-                "Pero lo superamos",
-                "Nos amamos",
-                "Se que no eres de tanto amor...",
-                "Pero lo necesitas tanto como yo",
-                "Aunque tus días a veces sean caóticos...",
-                "Yo estoy aquí",
-                "Tus amigas",
-                "Tu familia",
-                "Te apoyaremos siempre",
-                "Nunca lo dudes",
-                "Gracias por tu amor",
-                "Lo haremos crecer juntos",
-                "Formaremos una familia",
-                "Tú y Yo",
-                "Pase lo que pase",
-                "Siempre unidos"
-            ];
-
-            const imageReferences = [
-                "https://cdn-icons-png.flaticon.com/512/693/693423.png",
-                "https://cdn-icons-png.flaticon.com/512/2074/2074520.png",
-                "https://cdn-icons-png.flaticon.com/512/7081/7081326.png",
-                "https://cdn-icons-png.flaticon.com/512/4151/4151549.png",
-                "https://cdn-icons-png.flaticon.com/512/2773/2773104.png",
-                "https://cdn-icons-png.flaticon.com/512/4608/4608340.png",
-                "https://cdn-icons-png.flaticon.com/512/940/940643.png",
-                "https://cdn-icons-png.flaticon.com/512/3721/3721089.png",
-                "https://cdn-icons-png.flaticon.com/512/3371/3371308.png",
-                "https://cdn-icons-png.flaticon.com/512/2618/2618623.png",
-                "https://cdn-icons-png.flaticon.com/512/3065/3065883.png",
-                "https://cdn-icons-png.flaticon.com/512/5195/5195118.png",
-                "https://cdn-icons-png.flaticon.com/512/4051/4051637.png",
-                "https://cdn-icons-png.flaticon.com/512/6028/6028260.png",
-                "https://cdn-icons-png.flaticon.com/512/5065/5065314.png",
-                "https://cdn-icons-png.flaticon.com/512/4841/4841078.png",
-                "https://cdn-icons-png.flaticon.com/512/3884/3884999.png",
-                "https://cdn-icons-png.flaticon.com/512/4185/4185793.png",
-                "https://cdn-icons-png.flaticon.com/512/5625/5625749.png",
-                "https://cdn-icons-png.flaticon.com/512/6911/6911461.png",
-                "https://cdn-icons-png.flaticon.com/512/677/677786.png",
-                "https://cdn-icons-png.flaticon.com/512/940/940643.png",
-                "https://cdn-icons-png.flaticon.com/512/5540/5540597.png",
-                "https://cdn-icons-png.flaticon.com/512/1058/1058347.png",
-                "https://cdn-icons-png.flaticon.com/512/1176/1176706.png"
-            ];
-
-            let currentPhraseIndex = 0;
-            let currentImageIndex = 0;
-            let heartImageElement = document.getElementById("heartImage");
-            let textElement = document.querySelector(".text");
-
-            function changeTextImage() {
-                currentPhraseIndex = (currentPhraseIndex + 1) % phrases.length;
-                currentImageIndex = (currentImageIndex + 1) % imageReferences.length;
-                textElement.textContent = phrases[currentPhraseIndex];
-                heartImageElement.src = imageReferences[currentImageIndex];
-            }
-
-        </script>
-
-        <script>
-            const toggleButton = document.getElementById('toggleButton');
-            const myImage = document.getElementById('flashImagen');
-            let currentIndex = 0;
-            const images = [
-                'img/nosotros/lauraCorazon.jpg',
-                'img/nosotros/lauraSalera.jpg',
-                'img/nosotros/LauriMini.jpg',
-                'img/nosotros/abrazo1.jpg',
-                'img/nosotros/nosotrosParque.jpg',
-                'img/nosotros/manos3.jpg',
-                'img/nosotros/lauraPeloNaranja.jpg',
-                'img/nosotros/masajesOnda.jpg',
-                'img/nosotros/manosCoche.jpg',
-                'img/nosotros/beso.jpg',
-                'img/nosotros/salera.jpg',
-                'img/nosotros/lauraTequila.jpg',
-                'img/nosotros/lauraMujer.jpg',
-                'img/nosotros/miCasa.jpg',
-                'img/nosotros/burguer2.jpg',
-                'img/nosotros/cumple22.jpg',
-                'img/nosotros/lauraDiploma.jpg',
-                'img/nosotros/lauraManos.jpg',
-                'img/nosotros/camisetaStich2.jpg',
-                'img/nosotros/davidLauraChuches.jpg',
-                'img/nosotros/nuestroBebe.jpg',
-                'img/nosotros/saleraParchis.jpg',
-                'img/nosotros/pizzaManos.jpg',
-                'img/nosotros/manos1.jpg',
-                'img/nosotros/manosDos.jpg'
-            ];
-
-            function disableButton() {
-                toggleButton.disabled = true;
-            }
-
-            // Función para precargar una imagen en la caché del navegador
-            function preloadImage(url) {
-                const img = new Image();
-                img.src = url;
-            }
-
-            // Precargar todas las imágenes en el arreglo "images"
-            images.forEach((imageUrl) => {
-                preloadImage(imageUrl);
-            });
-
-            toggleButton.addEventListener('click', () => {
-                disableButton();
-                myImage.src = images[currentIndex];
-                myImage.style.opacity = 0;
-                myImage.classList.add('show');
-                setTimeout(() => {
-                    myImage.style.opacity = 0;
-                    myImage.classList.remove('show');
-                    currentIndex = (currentIndex + 1) % images.length;
-                    toggleButton.disabled = false;
-                }, 1300);
-            });
-        </script>
-
-
     </body>
 </html>
